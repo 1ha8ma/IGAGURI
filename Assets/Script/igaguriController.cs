@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class igaguriController : MonoBehaviour
 {
+    Vector3 position;
+
     //“Š‚°‚é
     public void Shoot(Vector3 dir)
     {
@@ -20,6 +23,5 @@ public class igaguriController : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        //Shoot(new Vector3(0, 200, 2000));
     }
 }

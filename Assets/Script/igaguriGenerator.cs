@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class igaguriGenerator : MonoBehaviour
 {
     public GameObject igaguriPrefab;
-    int igagurinum;
+    public  int igagurinum;
+    Vector3 hitposition;
 
     private void Start()
     {
@@ -16,11 +18,10 @@ public class igaguriGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ÉNÉäÉbÉNÇ≈ü{åIÇê∂ê¨Çµë±ÇØÇÈ
-        if (Input.GetMouseButtonDown(0) && igagurinum < 10)
+        //ÉNÉäÉbÉNÇ≈ü{åIÇê∂ê¨Çµë±ÇØÇÈ(10å¬Ç‹Ç≈)
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject igaguri = Instantiate(igaguriPrefab);
-            //igaguri.GetComponent<igaguriController>().Shoot(new Vector3(0, 200, 2000));
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldDir = ray.direction;
@@ -29,5 +30,10 @@ public class igaguriGenerator : MonoBehaviour
 
             igagurinum++;
         }
+    }
+
+    public int GetIgagurinum()
+    {
+        return igagurinum;
     }
 }
