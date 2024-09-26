@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     bool gameendflg;
     bool timeover;
-    int igagurinum;
     GameObject finishui;
 
     // Start is called before the first frame update
@@ -22,13 +21,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GameObject igagurigenerator = GameObject.Find("igaguriGenerator");
-        igagurinum = igagurigenerator.GetComponent<igaguriGenerator>().GetIgagurinum();
-
-        //10ŒÂo‚Ä‚¢‚½‚ç
-        if (igagurinum > 10)
-        {
-            gameendflg = true;
-        }
 
         //§ŒÀŠÔ‚ğ‰ß‚¬‚½‚ç
         GameObject timemanager = GameObject.Find("TimeManager");
