@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 public class TimeManager : MonoBehaviour
 {
     GameObject timertext;
-    float time = 10.0f;
+    float time = 30.0f;
     bool timeover;
 
     // Start is called before the first frame update

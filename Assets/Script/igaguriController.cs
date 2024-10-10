@@ -31,7 +31,15 @@ public class igaguriController : MonoBehaviour
             }
 
             //スコア加算
-            ScoreManager.score += Mathf.FloorToInt(calc * 10);//FloorToInt...float→intに変換
+            if (igaguriGenerator.thrownum % 100 == 0)//100回に一度3倍
+            {
+                ScoreManager.score += 3 * (Mathf.FloorToInt(calc * 10));//FloorToInt...float→intに変換
+            }
+            else
+            {
+                ScoreManager.score += Mathf.FloorToInt(calc * 10);
+            }
+
         }
 
         //削除
