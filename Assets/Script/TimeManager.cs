@@ -9,6 +9,8 @@ public class TimeManager : MonoBehaviour
     GameObject timertext;
     float time = 30.0f;
     bool timeover;
+    //タイマー一時停止
+    private bool isPaused = true;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +22,13 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isPaused)
+        {
+            return;
+        }
         if (timeover == false)
         {
-            this.time -= Time.deltaTime;
+            this.time -= Time.deltaTime;//時間をマイナス
             this.timertext.GetComponent<TextMeshProUGUI>().text = this.time.ToString("F1");
         }
 
@@ -37,5 +43,17 @@ public class TimeManager : MonoBehaviour
     public bool GetTimeOverflg()
     {
         return timeover;
+    }
+
+    //タイマーを開始にする
+    public void StartTimer()
+    {
+        isPaused = false;
+    }
+
+    //タイマーの一時停止
+    public void PausedTimer()
+    {
+        isPaused = true ;
     }
 }
